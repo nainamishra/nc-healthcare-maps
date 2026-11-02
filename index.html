@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where healthcare workforce gaps appear in North Carolina | AHRF</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="page">
+  <header class="story-head">
+    <h1 id="story-title">Healthcare provider availability varies across North Carolina</h1>
+    <p class="dek" id="story-subtitle">Primary care physicians per 10,000 residents by county, 2023. Darker blue indicates higher availability.</p>
+    <nav class="filter-row" aria-label="Choose provider specialty">
+      <span class="filter-label">VIEW SERVICE</span>
+      <div class="segments" id="metric-controls" role="group" aria-label="Healthcare provider type">
+        <button data-metric="primary" class="active" aria-pressed="true">Primary care</button>
+        <button data-metric="psychiatry" aria-pressed="false">Psychiatry</button>
+        <button data-metric="dentistry" aria-pressed="false">Dental care</button>
+      </div>
+    </nav>
+  </header>
+  <figure class="single-figure" aria-label="Annotated map of North Carolina healthcare providers with national comparison">
+    <div class="visual-frame">
+      <section class="map-visual" aria-label="North Carolina county map">
+        <div class="map-shell"><svg id="nc-map" role="img" aria-label="North Carolina counties shaded by provider rates, with selected county labels"></svg><div id="nc-loading" class="loading">Loading county map…</div></div>
+        <div class="map-legend" aria-label="Map legend">
+          <div class="legend-heading" id="key-title">Providers per 10,000 residents</div>
+          <div class="legend-scale"><span>0</span><span class="gradient-bar"></span><span id="scale-max">Higher rate</span></div>
+          <div class="legend-extras"><span><i class="key-missing"></i> No provider data</span></div>
+        </div>
+      </section>
+      <aside class="story-evidence" aria-label="Map findings and national comparison">
+        <div class="evidence-intro"><span class="evidence-rule"></span><h2>What stands out</h2></div>
+        <p class="evidence-stat"><strong id="zero-count">—</strong><span>of 100 counties</span></p>
+        <p class="evidence-desc" id="zero-explanation">with no recorded providers in this category</p>
+        <div class="evidence-comparison">
+          <h3>North Carolina vs. US</h3>
+          <p class="measure-units">Selected providers per 10,000 residents</p>
+          <div class="bar-set">
+            <div class="bar-row"><div class="bar-label"><span>North Carolina</span><strong id="nc-rate">—</strong></div><div class="bar-track"><div class="bar-fill nc" id="nc-bar"></div></div></div>
+            <div class="bar-row"><div class="bar-label"><span>US benchmark*</span><strong id="us-rate">—</strong></div><div class="bar-track"><div class="bar-fill us" id="us-bar"></div></div></div>
+          </div>
+          <p class="comparison-takeaway" id="comparison-takeaway"></p>
+        </div>
+        <p class="evidence-interpretation" id="finding-copy">Labels identify selected counties with no recorded providers and the highest-rate county.</p>
+      </aside>
+    </div>
+    <figcaption class="figure-bottom">County labels highlight selected extremes; hover for provider counts and rates.</figcaption>
+  </figure>
+
+<section class="overlay-story" id="overlay-story" aria-labelledby="overlay-title">
+  <header class="overlay-head">
+    
+    <h2 id="overlay-title">Counties With Fewer Selected Providers Also Show Gaps in Mapped Community Sites</h2>
+    <p id="overlay-subtitle" class="dek">Combined primary care physicians, psychiatrists, and dentists per 10,000 residents (2023); dots show selected HRSA community sites.</p>
+  </header>
+  <figure class="overlay-figure" aria-label="North Carolina provider rates with overlaid healthcare sites">
+    <div class="overlay-layout">
+      <div class="overlay-map-area">
+        <div class="overlay-map-shell"><svg id="site-map" role="img" aria-label="Provider availability choropleth with healthcare site dots"></svg><div class="loading" id="site-loading">Loading facility overlay…</div></div>
+        <div class="overlay-legend"><span id="overlay-key-title">Selected providers per 10,000 residents</span><div class="overlay-legend-row"><span>0</span><span class="gradient-bar"></span><span id="overlay-scale-max">—</span></div><div class="overlay-dot-key"><i></i><span id="overlay-dot-label">Selected community healthcare sites</span><span class="no-data-key">Gray = no provider data</span></div></div>
+      </div>
+      <aside class="overlay-notes" aria-label="Mapped site count">
+        <h3>Mapped community sites</h3>
+        <p class="site-number"><strong id="site-total">—</strong> <span>mapped locations statewide</span></p>
+        
+        <div class="county-medians" aria-label="County median reference values">
+          <h3>County medians</h3>
+          <div class="median-line"><span>Selected providers</span><strong id="median-providers">—</strong></div>
+          <div class="median-line"><span>Mapped community sites</span><strong id="median-sites">—</strong></div>
+          <p class="median-unit">Both rates are per 10,000 residents across NC counties.</p>
+        </div>
+        <p class="site-label-explanation" id="site-label-explanation">County labels identify areas with limited provider and site availability.</p>
+        <div class="limitations"><h3>Limitations</h3><p>Selected HRSA community-site records are not a complete facility inventory and may reflect a different reference date, so this comparison shows local supply rather than appointment access or a statistical correlation.</p></div>
+      </aside>
+    </div>
+
+  </figure>
+</section>
+  <footer class="footer">
+    <p><strong>Source:</strong> Health Resources and Services Administration, Area Health Resources Files (2024–2025 release); 2023 county provider counts and population estimates. Geography: US Atlas, Census-derived boundaries.</p>
+    <p><strong>Notes:</strong> Provider counts measure the specified workforce, not appointment access or unmet need. Zero means none recorded under that definition. The US benchmark includes jurisdictions with complete data for the selected measure.</p>
+  </footer>
+</main>
+<div id="tooltip" class="tooltip" hidden></div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<script src="app.js"></script>
+<script src="sites.js"></script>
+</body></html>
