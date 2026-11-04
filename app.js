@@ -1,8 +1,8 @@
 /* Narrative choropleth: each visible annotation has a defined selection rule. */
 const METRICS={
- primary:{name:'primary care physicians',title:'Two NC counties recorded no primary care physicians in 2023',interpretation:''},
- psychiatry:{name:'psychiatrists',title:'42 NC counties recorded no psychiatrists in 2023',interpretation:''},
- dentistry:{name:'dentists',title:'Four NC counties recorded no dentists in 2023',interpretation:''}
+ primary:{name:'Primary care physicians',title:'Two NC counties recorded no primary care physicians in 2023',interpretation:''},
+ psychiatry:{name:'Psychiatrists',title:'42 NC counties recorded no psychiatrists in 2023',interpretation:''},
+ dentistry:{name:'Dentists',title:'Four NC counties recorded no dentists in 2023',interpretation:''}
 };
 const ATLAS_URL='https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json';
 const palette=['#e4edf4','#aecbdd','#71a3c6','#377baa','#174c74'];
